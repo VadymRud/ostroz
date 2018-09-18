@@ -13,10 +13,18 @@ ws = wb['штатка']
 # for row in ws.rows:
 #     for cell in row:
 #         print(cell.value)
-first_row = list(ws.rows)[:20]
+first_row = list(ws.rows)[3:20]
+pidrozdil1 = ''
+pidrozdil2 = ''
+pidrozdil3 = ''
+pidrozdil4= ''
+pidrozdil5 = ''
+
 print(first_row)
 for row in first_row:
     for cell in row:
-        if cell.font.sz == 14.0:
-            print(cell.value, cell.font.sz,cell)
-
+        if cell.font.sz == 14.0 and cell.font.i and cell.font.b and cell.font.u and cell.value:
+            pidrozdil1 = cell.value
+            print(cell.value, cell.font.sz, cell.font.i)
+    if row[8].value != pidrozdil1:
+        print(row[8].value)
