@@ -1,5 +1,7 @@
 import os
 from openpyxl import load_workbook
+import pymorphy2
+morph = pymorphy2.MorphAnalyzer(lang='uk')
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 read_dir = os.path.join(BASE_DIR, 'read')
@@ -27,4 +29,5 @@ for row in first_row:
             pidrozdil1 = cell.value
             print(cell.value, cell.font.sz, cell.font.i)
     if row[8].value != pidrozdil1:
-        print(row[8].value)
+        w1 = morph.parse(row[8].value)[0]
+        print(w1.inflect({'gent'})[0])
