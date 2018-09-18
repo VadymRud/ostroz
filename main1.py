@@ -18,5 +18,5 @@ print(first_row)
 for row in first_row:
     for cell in row:
         if cell.font.sz == 14.0:
-            print(cell.value, cell.font.sz)
+            print(cell.value, cell.font.sz,cell)
 
